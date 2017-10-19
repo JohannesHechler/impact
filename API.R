@@ -16,3 +16,5 @@ ls.str(data) #look at downloaded list object
 str(data$result,max.level=1) #look at list that data comes in
 str(data$result$items) #look at actual data in dataframe within list
 names(data$result$items) #list of available variables
+
+#EXTERMINATE! EXTERMINATE!
