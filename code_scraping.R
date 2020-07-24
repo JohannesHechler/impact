@@ -3,6 +3,9 @@
 library(pdftools) #to open pdf files
 library(Rcrawler) #to harvest URLs from websites, to later scan them
 
+##---------------------------- USER PARAMETERS ------------------------##
+setwd("C:/impact")
+
 
 ###filter to remove URLs of any unwanted formats when harvesting URLs. Used by LinkExtractor() function from Rcrawler package
 #filter used during scan for HTML links (step 1 of process)
@@ -23,16 +26,18 @@ urlExtfilter_pdf <-  c("flv", "mov", "swf", "txt", "xml",
                        "jpeg", "png", "gif", "psd", "ico", "bmp", "odt", 
                        "ods", "odp", "odb", "odg", "odf", "atom", "csv", "ics", "aspx")
 
+##---------------------------- LOAD INPUT DATA ------------------------##
 ###input data: search terms & variables for final dataset, and department info
 metadata <- c("URL","File","Dep_ext","Dep_int","Date") #what info to extract apart from ONS product names
-#load("C:/Users/Johannes Hechler/test/products.Rdata") #import list with ONS product names to search
-#load("C:/Users/Johannes Hechler/test/targets.Rdata") #import department information
-#load("C:/Users/Johannes Hechler/test/links_stop.Rdata") #import stop links
-#load("C:/Users/Johannes Hechler/test/resultsNotCleaned.Rdata") #import results up to last completed department in case of previous crash
-#load("C:/Users/Johannes Hechler/test/links_html.Rdata") #import html link list if R has crashed
-#load("C:/Users/Johannes Hechler/test/links_pdf.Rdata") #import last department's pdf link list if R has crashed
+#load("products.Rdata") #import list with ONS product names to search
+#load("targets.Rdata") #import department information
+#load("links_stop.Rdata") #import stop links
+#load("resultsNotCleaned.Rdata") #import results up to last completed department in case of previous crash
+#load("links_html.Rdata") #import html link list if R has crashed
+#load("links_pdf.Rdata") #import last department's pdf link list if R has crashed
 
 
+##---------------------------- ACTUAL SCRAPER ------------------------##
 ###create empty dataframe to later hold data. flexible number of variables depending on how many products we search for
 results<-as.data.frame(matrix(
   ncol=length(
