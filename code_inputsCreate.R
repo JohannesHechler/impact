@@ -6,11 +6,10 @@
 ## PRODUCTS
 products<-read.csv("products.csv", stringsAsFactors = F) #import products
 products<-products[,1:2] #remove unused variables from products
-save(products,file="products.Rdata")
-#load("products.Rdata")
 
 ## TARGETS
-targets<-read.csv("C:/Users/Johannes Hechler/Downloads/targets.csv", stringsAsFactors = F) #import targets
+targets<-read.csv("targets.csv", stringsAsFactors = F) #import targets
 targets<-targets[1:25,] #remove all but ministerial departments
-save(targets,file="C:/Users/Johannes Hechler/test/targets.Rdata")
-#load("targets.Rdata")
+
+save(products, targets,file="inputs.Rdata")
+#load("inputs.Rdata")
