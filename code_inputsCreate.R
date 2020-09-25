@@ -11,5 +11,5 @@ products<-products[,1:2] #remove unused variables from products
 targets<-read.csv("targets.csv", stringsAsFactors = F) #import targets
 targets<-targets[1:25,] #remove all but ministerial departments
 
-save(products, targets,file="inputs.Rdata")
+save(products, targets, links_stop, file="inputs.Rdata")
 #load("inputs.Rdata")
